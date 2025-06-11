@@ -20,7 +20,7 @@ if (!token || !chatId) {
 
 const bot = new TelegramBot(token, { polling: false });
 
-app.use(cors());
+app.use(cors()); // Разрешаем CORS для кросс-доменных запросов
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public')); // Обслуживание статических файлов из папки public
@@ -63,12 +63,13 @@ Telegram: ${telegram || 'Не указано'}
 
 // Маршрут для обслуживания index.html
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 // Health check для Render
 app.get('/health', (req, res) => res.sendStatus(200));
 
-app.listen(port, () => {
-  console.log(`Сервер запущен на порту ${port}`);
+// Запуск сервера на 0.0.0.0 для Render
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Сервер запущен и слушает порт ${port}`);
 });
