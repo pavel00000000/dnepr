@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Работа в офисе. Колл-центр в Днепре</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Бегущая строка -->
+    <div class="marquee">
+        <span>Количество мест ограничено / Не упусти свой шанс / Количество мест ограничено / Не упусти свой шанс</span>
+    </div>
+
+    <!-- Hero-секция -->
+    <section class="hero" data-aos="fade-up" style="background-image: url('verhni_ekran.png'); background-size: cover; background-position: center;">
+        <h1>ЗВОНКИ БЕЗ СТРЕССА</h1>
+         <h1>ЗАРПЛАТА С ПРОГРЕССОМ!</h1>
+        <p>Работа в офисе в Днепре</p>
+        <p>Без опыта — обучим</p>
+        <p>Средний доход: от 30 000₴ до 80 000₴</p>
+        <p>Движ, барабан с призами, айфоны, премии</p>
+          <p>НЕ УДАЛЕННО!</p>
+         <svg class="apply-btn glow" width="200" height="200" viewBox="0 0 200 200">
+    <defs>
+        <!-- Кривая для текста -->
+        <path id="textcircle" d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0" />
+    </defs>
+
+    <!-- Вращающийся текст -->
+    <g class="rotate-text" transform-origin="100 100">
+        <text font-size="12" fill="#FFFFFF" font-weight="bold">
+            <textPath href="#textcircle" startOffset="0%">
+                ⬆ ОТПРАВЬ ЗАЯВКУ ⬆ ОТПРАВЬ ЗАЯВКУ ⬆ ОТПРАВЬ ЗАЯВКУ ⬆ ОТПРАВЬ ЗАЯВКУ ⬆
+            </textPath>
+        </text>
+    </g>
+
+    <!-- Золотой круг с эффектом свечения -->
+    <circle cx="100" cy="100" r="50" fill="#FFD700" />
+
+    <!-- Центральный белый текст -->
+    <text x="100" y="105" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="bold">
+        Отправить
+    </text>
+</svg>
+
+<style>
+    .rotate-text {
+        animation: rotateText 8s linear infinite;
+    }
+
+    @keyframes rotateText {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    /* Светящееся золотое сияние */
+    .glow {
+        filter: drop-shadow(0 0 10px #FFD700) drop-shadow(0 0 20px #FFD700);
+        transition: filter 0.3s ease;
+    }
+
+    .glow:hover {
+        filter: drop-shadow(0 0 15px #FFEB3B) drop-shadow(0 0 30px #FFD700);
+    }
+</style>
+
+
+    </section>
+
+    <!-- Кто мы -->
+    <section class="about glass" data-aos="fade-up">
+        <h2>Кто мы?</h2>
+        <p>Молодая команда</p>
+        <p>Быстрый рост и карьерные перспективы</p>
+        <p>Работаем на рынке более 5 лет</p>
+        <p>В офисе: музыка, кофе, гейм-зона, поддержка</p>
+        <p>Барабан с призами!</p>
+    </section>
+
+    <!-- Что ты получишь -->
+    <section class="glass" data-aos="fade-up">
+        <h2>Что ты получишь</h2>
+        <div class="benefits-grid">
+            <div class="tile"><span class="custom-icon icon-1"></span><p>Ставка + % от продаж</p></div>
+            <div class="tile"><span class="custom-icon icon-2"></span><p>Выплаты каждую неделю</p></div>
+            <div class="tile"><span class="custom-icon icon-3"></span><p>Готовая база клиентов</p></div>
+            <div class="tile"><span class="custom-icon icon-4"></span><p>Обучение с нуля</p></div>
+            <div class="tile"><span class="custom-icon icon-5"></span><p>Бонусы и призы каждую неделю</p></div>
+            <div class="tile"><span class="custom-icon icon-6"></span><p>Оплачиваем обеды</p></div>
+              <div class="tile"><span class="custom-icon icon-1"></span><p>Работа мечты — начинай сейчас!</p></div>
+
+            <div class="tile"><span class="custom-icon icon-7"></span><p>Без потолка, без напряга — только вверх!</p></div>
+        </div>
+    </section>
+
+    <!-- Кто нам подходит -->
+    <section class="glass" data-aos="fade-up">
+        <h2>Ты нам подойдёшь, если:</h2>
+        <ul>
+            <li><span class="custom-check"></span> Возраст 16–35</li>
+            <li><span class="custom-check"></span> Не боишься звонить</li>
+            <li><span class="custom-check"></span> Грамотно общаешься</li>
+            <li><span class="custom-check"></span> Хочешь вырваться на новый уровень</li>
+            <li><span class="custom-check"></span> Готов учиться и зарабатывать</li>
+        </ul>
+    </section>
+
+    <!-- Требования -->
+    <section class="glass" data-aos="fade-up">
+        <h2>Требования</h2>
+        <ul>
+            <li><span class="custom-check"></span> Грамотная устная речь на русском</li>
+            <li><span class="custom-check"></span> Желание обучаться</li>
+            <li><span class="custom-check"></span> График 5/2, 8:00–17:00</li>
+            <li><span class="custom-check"></span> Присутствие в офисе (не удалёнка)</li>
+        </ul>
+    </section>
+
+    <!-- Форма заявки на странице -->
+ <section class="glass" data-aos="fade-up" style="background-image: url('forma_zayvki.png'); background-size: cover; background-position: center;">
+    <h2>Подать заявку</h2>
+    <form id="applyFormPage" class="apply-form">
+        <input type="text" placeholder="Имя" name="name" required>
+        <input type="tel" placeholder="Телефон" name="phone" required>
+        <input type="number" placeholder="Возраст" name="age" min="16" max="35" required>
+        <input type="text" placeholder="Telegram (@nickname) по желанию" name="telegram">
+        <button type="submit">ОТПРАВИТЬ ЗАЯВКУ</button>
+        <p>*Только для кандидатов от 16 до 35 лет</p>
+        <a href="privacy.html">Политика конфиденциальности</a>
+    </form>
+</section>
+   <!-- Контакты -->
+<section class="contacts" data-aos="fade-up">
+    <h2>Контакты</h2>
+    <a href="https://t.me/yourtelegram" target="_blank" class="telegram-btn">Telegram</a>
+    <a href="#" class="lang-switch-btn">UA/RU</a>
+</section>
+
+
+    <!-- Модальное окно -->
+   <div class="modal" id="applyModal" style="background-image: url('forma_zayvki.png'); background-size: cover; background-position: center;">
+    <div class="modal-content">
+        <span class="close">×</span>
+        <h2>Оставить заявку</h2>
+        <form id="applyFormModal">
+            <input type="text" placeholder="Имя" name="name" required>
+            <input type="tel" placeholder="Телефон" name="phone" required>
+            <input type="number" placeholder="Возраст" name="age" min="16" max="35" required>
+            <input type="text" placeholder="Telegram (@nickname)" name="telegram">
+            <button type="submit">ОТПРАВИТЬ ЗАЯВКУ</button>
+        </form>
+        <p>*Только для кандидатов от 16 до 35 лет</p>
+        <a href="privacy.html">Политика конфиденциальности</a>
+    </div>
+</div>
+    <!-- Фиксированная кнопка -->
+    <div class="fixed-btn apply-btn">Оставить заявку — перезвоним за 30 минут</div>
+
+    <!-- Скрипты -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="language-switch.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
