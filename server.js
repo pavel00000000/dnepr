@@ -60,6 +60,9 @@ Telegram: ${telegram || 'Не указано'}
     });
 });
 
+// Health check для Render
+app.get('/health', (req, res) => res.sendStatus(200));
+
 app.listen(port, () => {
   console.log(`Сервер запущен на порту ${port}`);
 });
