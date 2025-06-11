@@ -1,3 +1,4 @@
+// server.js
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -22,7 +23,7 @@ const bot = new TelegramBot(token, { polling: false });
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static('public')); // Обслуживание статических файлов из папки public
 
 // Настройка multer для обработки FormData
 const upload = multer();
@@ -58,6 +59,11 @@ Telegram: ${telegram || 'Не указано'}
       console.error('Ошибка при отправке в Telegram:', error);
       res.status(500).json({ success: false, message: 'Ошибка при отправке заявки' });
     });
+});
+
+// Маршрут для обслуживания index.html
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 // Health check для Render
