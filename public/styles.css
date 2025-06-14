@@ -120,11 +120,13 @@ section h2 {
 }
 
 .tile {
-    background: rgba(255, 255, 255, 0.03);
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+        url('kartohki.png') center/cover no-repeat;
     backdrop-filter: blur(12px);
     border-radius: 20px;
     padding: 24px;
-    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.7);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     align-items: center;
@@ -132,13 +134,15 @@ section h2 {
     animation: perspectiveIn 0.7s ease forwards;
     opacity: 0;
 }
+
+
 .tile:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 12px 28px rgba(255, 215, 0, 0.9);
 }
 .tile p {
     margin-left: 12px;
-    color: #fffde5;
+    color: #ffffff;
     font-weight: 500;
     font-size: 1rem;
 }
@@ -428,8 +432,8 @@ ul li .custom-check {
         padding: 20px;
     }
     .custom-icon {
-        width: 20px;
-        height: 20px;
+        width: 50px;
+        height: 50px;
     }
     .custom-check {
         width: 16px;
