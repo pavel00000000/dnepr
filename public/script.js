@@ -1,83 +1,98 @@
-// public/script.js
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
   // Инициализация AOS
-  AOS.init();
+  if (typeof AOS !== 'undefined') {
+    AOS.init();
+  }
 
-  const modal = document.getElementById('applyModal');
-  const btns = document.querySelectorAll('.apply-btn');
-  const span = document.querySelector('.close');
-  const formModal = document.getElementById('applyFormModal');
-  const formPage = document.getElementById('applyFormPage');
+  var modal = document.getElementById('applyModal');
+  var btns = document.querySelectorAll('.apply-btn');
+  var span = document.querySelector('.close');
+  var formModal = document.getElementById('applyFormModal');
+  var formPage = document.getElementById('applyFormPage');
 
   // Открытие модального окна
-  btns.forEach((btn) => {
-    btn.onclick = function () {
-      modal.style.display = 'block';
-    };
-  });
-
-  // Закрытие модального окна по клику на крестик
-  if (span) {
-    span.onclick = function () {
-      modal.style.display = 'none';
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].onclick = function () {
+      if (modal) {
+        modal.style.display = 'block';
+      }
     };
   }
 
-  // Закрытие модального окна по клику вне его
+  // Закрытие по крестику
+  if (span) {
+    span.onclick = function () {
+      if (modal) {
+        modal.style.display = 'none';
+      }
+    };
+  }
+
+  // Закрытие по клику вне окна
   window.onclick = function (event) {
-    if (event.target == modal) {
+    if (event.target === modal) {
       modal.style.display = 'none';
     }
   };
 
-  // Функция обработки отправки формы
+  // Обработка отправки формы
   function handleFormSubmit(form) {
     if (!form) {
       console.warn('Форма не найдена');
       return;
     }
-    form.addEventListener('submit', async (e) => {
+
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const ageInput = form.querySelector('input[type="number"]');
+      var ageInput = form.querySelector('input[type="number"]');
       if (!ageInput) {
         alert('Поле возраста не найдено');
         return;
       }
-      const age = parseInt(ageInput.value);
+
+      var age = parseInt(ageInput.value, 10);
       if (isNaN(age) || age < 16 || age > 35) {
         alert('Возраст должен быть от 16 до 35 лет');
         return;
       }
 
-      const formData = new FormData(form);
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/submit', true);
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            try {
+              var data = JSON.parse(xhr.responseText);
+              if (data.success) {
+                alert('Заявка отправлена!');
+                if (modal) modal.style.display = 'none';
+                form.reset();
+              } else {
+                alert(data.message || 'Ошибка при отправке.');
+              }
+            } catch (err) {
+              console.error('Ошибка при обработке JSON:', err);
+              alert('Ошибка при обработке ответа сервера.');
+            }
+          } else {
+            console.error('HTTP error:', xhr.status);
+            alert('Произошла ошибка при отправке заявки. Попробуйте позже.');
+          }
+        }
+      };
 
       try {
-        const response = await fetch('/submit', {
-          method: 'POST',
-          body: formData,
-        });
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        if (data.success) {
-          alert('Заявка отправлена!');
-          if (modal) modal.style.display = 'none';
-          form.reset();
-        } else {
-          alert(data.message || 'Ошибка при отправке.');
-        }
-      } catch (error) {
-        console.error('Ошибка:', error);
-        alert('Произошла ошибка при отправке заявки. Попробуйте позже.');
+        var formData = new FormData(form);
+        xhr.send(formData);
+      } catch (e) {
+        console.error('Ошибка при отправке формы:', e);
+        alert('Не удалось отправить форму. Обновите браузер или попробуйте позже.');
       }
     });
   }
 
-  // Привязка обработчиков к формам
   handleFormSubmit(formModal);
   handleFormSubmit(formPage);
 });
