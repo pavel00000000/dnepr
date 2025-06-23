@@ -59,18 +59,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
       var xhr = new XMLHttpRequest();
       xhr.open('POST', '/submit', true);
+      xhr.setRequestHeader('Accept', 'application/json');
+      xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
           if (xhr.status >= 200 && xhr.status < 300) {
             try {
-              var data = JSON.parse(xhr.responseText);
-              if (data.success) {
-                alert('Заявка отправлена!');
-                if (modal) modal.style.display = 'none';
-                form.reset();
+              if (xhr.responseText && xhr.responseText.trim().length > 0) {
+                var data = JSON.parse(xhr.responseText);
+                if (data.success) {
+                  alert('Заявка отправлена!');
+                  if (modal) modal.style.display = 'none';
+                  form.reset();
+                } else {
+                  alert(data.message || 'Ошибка при отправке.');
+                }
               } else {
-                alert(data.message || 'Ошибка при отправке.');
+                alert('Сервер вернул пустой ответ.');
               }
             } catch (err) {
               console.error('Ошибка при обработке JSON:', err);
