@@ -1,4 +1,3 @@
-// server.js
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -25,14 +24,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public')); // Обслуживание статических файлов из папки public
 
-// Настройка multer для обработки FormData
+// Настройка multer для обработки multipart/form-data
 const upload = multer();
 
 app.post('/submit', upload.none(), (req, res) => {
   const { name, age, phone, telegram } = req.body;
 
+  // Логирование полученных данных для отладки
+  console.log('Полученные данные:', req.body);
+
   // Валидация возраста
-  if (!age || age < 16 || age > 35) {
+  if (!age || isNaN(parseInt(age)) || parseInt(age) < 16 || parseInt(age) > 35) {
     return res.status(400).json({ success: false, message: 'Возраст должен быть от 16 до 35 лет' });
   }
 

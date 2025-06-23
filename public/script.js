@@ -62,8 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
       
       var xhr = new XMLHttpRequest();
       xhr.open('POST', '/submit', true);
-      // Установка заголовков для совместимости с iOS и Safari
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      // Удаляем Content-Type, чтобы браузер установил multipart/form-data автоматически
       xhr.setRequestHeader('Accept', 'application/json');
       
       xhr.onreadystatechange = function () {
@@ -94,7 +93,10 @@ document.addEventListener('DOMContentLoaded', function () {
       
       try {
         var formData = new FormData(form);
-        console.log('Отправка данных: ', Object.fromEntries(formData));
+        // Логирование содержимого FormData
+        for (let [key, value] of formData.entries()) {
+          console.log(`FormData: ${key}=${value}`);
+        }
         xhr.send(formData);
       } catch (e) {
         console.error('Ошибка при отправке формы: ', e);
