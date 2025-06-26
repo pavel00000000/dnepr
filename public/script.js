@@ -73,11 +73,9 @@ document.addEventListener('DOMContentLoaded', function () {
               var data = JSON.parse(xhr.responseText);
               console.log('Ответ сервера: ', data);
               if (data.success) {
-                  alert('Заявка отправлена!');
-                     gtag_report_conversion(null); // ← фиксируем конверсию для Google Ads
+                alert('Заявка отправлена!');
                 if (modal) modal.style.display = 'none';
-                     form.reset();
-
+                form.reset();
               } else {
                 console.error('Ошибка от сервера: ' + (data.message || 'Неизвестная ошибка'));
                 alert(data.message || 'Ошибка при отправке.');
