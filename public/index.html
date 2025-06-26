@@ -19,16 +19,34 @@
   <meta property="og:description" content="Ставка + %. Обучим. Премии. Офис в центре Днепра. Оставь заявку — перезвоним за 30 минут!" />
   <meta property="og:image" content="https://dnepr.net.ua/preview.png" />
 
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-00R22V6X3X"></script>
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17161163099"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-00R22V6X3X');
-  gtag('config', 'AW-17108958143');
+  gtag('config', 'AW-17161163099');
 </script>
+
+<!-- Event snippet for Отправка формы для потенциальных клиентов conversion page -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17161163099/pf8hCLbs5uMaENuiivc_',
+      'value': 1.0,
+      'currency': 'UAH',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 
   <!-- Fonts and styles -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
