@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           } else {
             console.error('HTTP ошибка: ' + xhr.status);
-            alert('Произошла ошибка при отправке заявки. Попробуйте позже.');
+            alert('Номер телефона должен начинаться с +380... или 0...');
           }
         }
       };
