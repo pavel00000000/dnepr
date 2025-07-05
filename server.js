@@ -38,10 +38,14 @@ app.post('/submit', upload.none(), (req, res) => {
     return res.status(400).json({ success: false, message: 'Возраст должен быть от 16 до 35 лет' });
   }
 
-  // Валидация номера телефона
-  if (!phone || !phone.startsWith('+380')) {
-    return res.status(400).json({ success: false, message: 'Номер телефона должен начинаться с +380' });
+ // Валидация номера телефона
+if (phone) {
+  const isValidFormat = phone.startsWith('+380') || phone.startsWith('0');
+  if (!isValidFormat) {
+    return res.status(400).json({ success: false, message: 'Номер телефона должен начинаться с +380 или 0' });
   }
+}
+
 
   // Формирование сообщения для Telegram
   const message = `
