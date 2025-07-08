@@ -53,7 +53,7 @@ const translations = {
             placeholder1: "Имя",
             placeholder2: "Телефон",
             placeholder3: "Возраст",
-            placeholder4: "Telegram (@nickname) по желанию",
+            placeholder4: "Предпочитаемый город для работы (Днепр, Одесса)",
             button: "ОТПРАВИТЬ ЗАЯВКУ",
             note: "*Только для кандидатов от 16 до 35 лет",
             privacy: "Политика конфиденциальности"
@@ -63,7 +63,7 @@ const translations = {
             placeholder1: "Имя",
             placeholder2: "Телефон",
             placeholder3: "Возраст",
-            placeholder4: "Telegram (@nickname)",
+            placeholder4: "Предпочитаемый город для работы (Днепр, Одесса)",
             button: "ОТПРАВИТЬ ЗАЯВКУ",
             note: "*Только для кандидатов от 16 до 35 лет",
             privacy: "Политика конфиденциальности"
@@ -128,7 +128,7 @@ const translations = {
             placeholder1: "Ім’я",
             placeholder2: "Телефон",
             placeholder3: "Вік",
-            placeholder4: "Telegram (@нікнейм) за бажанням",
+            placeholder4: "Предпочитаемый город для работы (Днепр, Одесса)",
             button: "ВІДПРАВИТИ ЗАЯВКУ",
             note: "*Тільки для кандидатів від 16 до 35 років",
             privacy: "Політика конфіденційності"
@@ -138,7 +138,7 @@ const translations = {
             placeholder1: "Ім’я",
             placeholder2: "Телефон",
             placeholder3: "Вік",
-            placeholder4: "Telegram (@нікнейм)",
+            placeholder4: "Предпочитаемый город для работы (Днепр, Одесса)",
             button: "ВІДПРАВИТИ ЗАЯВКУ",
             note: "*Тільки для кандидатів від 16 до 35 років",
             privacy: "Політика конфіденційності"
