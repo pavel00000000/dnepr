@@ -73,14 +73,13 @@
     <p>Движ, барабан с призами, айфоны, премии</p>
     <p>НЕ УДАЛЕННО!</p>
 
-    <svg class="apply-btn glow" width="200" height="200" viewBox="0 0 200 200">
-        <defs>
-            <!-- Кривая для текста -->
-            <path id="textcircle" d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0" />
-        </defs>
-    </svg>
-</section>
-
+  <svg class="apply-btn glow" width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Кривая для текста -->
+        <path id="textcircle" d="M 100, 100 m -75, 0 
+            a 75,75 0 1,0 150,0 
+            a 75,75 0 1,0 -150,0" />
+    </defs>
 
     <!-- Вращающийся текст -->
     <g class="rotate-text" transform-origin="100 100">
@@ -92,13 +91,32 @@
     </g>
 
     <!-- Золотой круг с эффектом свечения -->
-    <circle cx="100" cy="100" r="50" fill="#FFD700" />
+    <circle cx="100" cy="100" r="50" fill="#FFD700">
+        <animate attributeName="r" values="48;52;48" dur="2s" repeatCount="indefinite" />
+    </circle>
 
     <!-- Центральный белый текст -->
     <text x="100" y="105" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="bold">
         Отправить
     </text>
 </svg>
+
+<style>
+    .glow {
+        filter: drop-shadow(0 0 10px #FFD700) drop-shadow(0 0 20px #FFD700);
+        cursor: pointer;
+    }
+
+    .rotate-text {
+        animation: spin 12s linear infinite;
+    }
+
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+</style>
+
 
 <style>
     .rotate-text {
@@ -154,7 +172,7 @@
     <section class="glass" data-aos="fade-up">
         <h2>Ты нам подойдёшь, если:</h2>
         <ul>
-            <li><span class="custom-check"></span> Возраст 16–35</li>
+            <li><span class="custom-check"></span> Возраст 16–25</li>
             <li><span class="custom-check"></span> Не боишься звонить</li>
             <li><span class="custom-check"></span> Грамотно общаешься</li>
             <li><span class="custom-check"></span> Хочешь вырваться на новый уровень</li>
@@ -178,10 +196,10 @@
     <form id="applyFormPage" class="apply-form" onsubmit="return gtag_report_conversion('https://dnepr.net.ua/')">
         <input type="text" placeholder="Имя" name="name" required>
         <input type="tel" placeholder="Телефон" name="phone" required>
-        <input type="number" placeholder="Возраст" name="age" min="16" max="35" required>
+        <input type="number" placeholder="Возраст" name="age" min="16" max="25" required>
         <input type="text" placeholder="Предпочитаемый город для работы (Днепр, Одесса)" name="telegram">
         <button type="submit">ОТПРАВИТЬ ЗАЯВКУ</button>
-        <p>*Только для кандидатов от 16 до 35 лет</p>
+        <p>*Только для кандидатов от 16 до 25 лет</p>
         <a href="privacy.html">Политика конфиденциальности</a>
     </form>
 </section>
@@ -203,11 +221,11 @@
         <form id="applyFormModal">
             <input type="text" placeholder="Имя" name="name" required>
             <input type="tel" placeholder="Телефон" name="phone" required>
-            <input type="number" placeholder="Возраст" name="age" min="16" max="35" required>
+            <input type="number" placeholder="Возраст" name="age" min="16" max="25" required>
             <input type="text" placeholder="Предпочитаемый город для работы (Днепр, Одесса)" name="telegram">
             <button type="submit">ОТПРАВИТЬ ЗАЯВКУ</button>
         </form>
-        <p>*Только для кандидатов от 16 до 35 лет</p>
+        <p>*Только для кандидатов от 16 до 25 лет</p>
         <a href="privacy.html">Политика конфиденциальности</a>
     </div>
 </div>

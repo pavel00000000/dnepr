@@ -34,8 +34,8 @@ app.post('/submit', upload.none(), (req, res) => {
   console.log('Полученные данные:', req.body);
 
   // Валидация возраста
-  if (!age || isNaN(parseInt(age)) || parseInt(age) < 16 || parseInt(age) > 35) {
-    return res.status(400).json({ success: false, message: 'Возраст должен быть от 16 до 35 лет' });
+  if (!age || isNaN(parseInt(age)) || parseInt(age) < 16 || parseInt(age) > 25) {
+    return res.status(400).json({ success: false, message: 'Возраст должен быть от 16 до 25 лет' });
   }
 
 // Валидация номера телефона (в контроллере на бэке)
